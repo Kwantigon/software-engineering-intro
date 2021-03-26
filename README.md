@@ -1,2 +1,2 @@
 # software-engineering-intro
-Introduction to software engineering
+Materials for the course "Introduction to software engineering" (MFF 2020-2021)
