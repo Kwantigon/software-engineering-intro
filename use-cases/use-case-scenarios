@@ -1,0 +1,147 @@
+Use case scenarios
+
+1. Create Profile
+Starting situation:
+●	An applicant would like to create a profile, in order to be able to apply for studies at the university through the Student Module (SM)
+Normal:
+●	The applicant fills in the personal information and requests the creation of the profile
+●	SM checks if mandatory fields are filled in and correctly
+●	SM creates the profile for the applicant
+●	SM informs the user about the successful profile creation and offers to opportunity to create an application
+What can go wrong:
+●	User enters invalid data for personal information. The system will notify the user and asks them to enter valid data.
+System state on completion:
+●	Valid profile information is recorded in SM and the opportunity is offered to the user to create an application (2)
+●	Invalid profile information gets rejected
+●	In either of the cases, user is informed
+
+
+2. Create Application
+Starting situation:
+●	An applicant, who already has a profile, would like to apply for studies through the SM
+Normal:
+●	The application fills in the necessary information for the application
+●	SM checks if mandatory fields are filled in and correctly
+●	The application is created for the user in the SM
+●	SM informs the applicant about the successful application submission and offers the opportunity to display application status (3)
+What can go wrong:
+●	User enters invalid data for the application and is asked to correct the incorrect fields.
+System state on completion:
+●	Valid application is recorded in SM and the created application is displayed to the applicant.
+●	Invalid application gets rejected
+●	In either of the cases, user is informed
+
+3. Display application status
+Starting situation:
+●	An applicant, who has already submitted a valid application, would like to view their own submitted information and the application status
+	OR
+●	A member of the admission committee would like to view an applicants submitted application and status
+Normal:
+●	A user (either an applicant or a member of the admission committee) requests the information and the status regarding the application of an applicant to be displayed
+●	SM checks if the user has the privilege to view the application information
+●	SM displays the requested data
+What can go wrong:
+●	User doesn’t have privilege to view the requested data
+System state on completion:
+●	For users with the proper privileges, the data is displayed
+●	For users without the proper privileges, access is denied
+
+4. Admit/Deny application
+Starting situation:
+●	A member of the admission committee has successfully requested the display of an application status (3)
+●	There wasn’t a decision made for the application
+●	They want to decide whether to admit or reject application
+Normal:
+●	The admission committee member requests the admission or rejection of the displayed application
+●	SM records the decision and the submitter of the application is informed
+●	In case of admission, the opportunity is offered to the applicant to either confirm or deny the enrollment
+What can go wrong:
+System state on completion:
+●	Applicant is informed about the decision
+●	The application is marked as either approved or rejected and it is stored in the database.
+
+5. Confirm/Deny enrollment
+Starting situation:
+●	A member of the admission committee has approved the submitted application of the an applicant (4)
+●	The opportunity is offered to the applicant, either to confirm or deny it.
+●	The applicant would like to make a decision
+Normal:
+●	Applicant requests the confirmation or denial of the admission
+●	SM records the decision
+●	SM informs the admission committee about the decision
+●	In case of confirmation, the user type of the applicant is changed to student
+What can go wrong:
+	The applicant neither confirms nor denies it before the deadline
+System state on completion:
+●	In case the confirmation, the applicant is changed to student.
+
+6. Upload personal documents
+Starting situation:
+●	An applicant with a profile, would like to upload personal documents
+Normal:
+●	User selects files to be uploaded
+●	SM checks if the files have the correct format, doesn’t contain any malicious software and doesn’t exceed the file size limit.
+●	The files are uploaded to the profile of the applicant
+●	The opportunity is offered to the applicant to download the uploaded files
+What can go wrong:
+●	User tried to upload files with incorrect format
+●	User tried to upload malicious files
+●	User tried to upload files, that exceed the file size limit
+System state on completion:
+●	In case of valid files, the files are uploaded to SM and the opportunity is offered to the applicant to download those files (7)
+●	Invalid files won’t get uploaded
+
+7. Download personal documents
+Starting situation:
+●	An applicant, who has already uploaded valid personal files, would like to download the uploaded documents
+	OR
+●	A member of the admission committee would like to download an applicants personal documents
+Normal:
+●	A user (either an applicant or a member of the admission committee) requests the download of the personal documents
+●	SM checks if the user has the privilege to download the requested files
+●	SM sends the data to the user
+What can go wrong:
+●	User doesn’t have privilege to download the requested data
+System state on completion:
+●	For users with the proper privileges, the data is downloaded
+●	For users without the proper privileges, access is denied
+
+8. View courses
+Starting situation:
+●	A student would like to see the information about their courses (list of results of seminars, credits and exams, grades…)
+Normal:
+●	The student requests an information about their own courses
+●	SM displays the student the requested information
+What can go wrong:
+System state on completion:
+●	The requested information is displayed to the student
+
+9. Display student’s profile information
+Starting situation:
+●	A student would like to view their own profile information
+	OR
+●	A teacher would like to view the profile information of one of their student’s
+Normal:
+●	A user (either a student or a teacher) requests the profile informations of a student to be displayed
+●	SM checks if the user has the privilege to view the profile informations
+●	SM displays the requested data
+What can go wrong:
+●	User doesn’t have privilege to view the requested data
+System state on completion:
+●	For users with the proper privileges, the data is displayed
+●	For users without the proper privileges, access is denied
+
+10. View results
+Starting situation:
+●	A student would like to view their own results (results of state exams, diploma thesis and success rate for each semester)
+	OR
+●	A teacher would like to view the results of one of their student’s
+Normal:
+●	A user (either a student or a teacher) requests the result informations of a student to be displayed
+●	SM checks if the user has the privilege to view the requested result information
+●	SM displays the requested data
+What can go wrong:
+●	User doesn’t have privilege to view the requested data
+System state on completion:
+●	For users with the proper privileges, the data is displayed
+●	For users without the proper privileges, access is denied
