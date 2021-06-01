@@ -1,0 +1,55 @@
+Create statistics button -> Form(interval,building)->Computed->pair(room,occupancy)->CSV
+
+1)
+Type: Validation
+Summary: Normal operation with specified interval and specified building
+Preconditions:
+    - Logged into the system as a member of commission for schedules, Department of Building Maintenance or a teacher
+    - There are classes at Monday from 9:00 to 11:00 in Building C
+Step actions:
+    - Press the 'Create Statistics' button
+    - Fill in the form with the interval of 9:00-11:00 and building C
+    - Submit the form by pressing the 'Submit' button
+    - Check that the displayed list is correct, namely all lecture rooms in the specified building and their occupancies in the specified interval are shown
+    - Download the data by pressing the 'Download in CSV format' button
+    - Check that the downloaded data is in correct CSV format and the content corresponds to the previously displayed data
+
+
+2)
+Type: Validation
+Summary: Normal operation with not specified interval or building
+Preconditions:
+    - Logged into the system as a member of commission for schedules, Department of Building Maintenance or a teacher
+    - There are classes in at least one interval and building
+Step actions:
+    - Press the 'Create Statistics' button to obtain the form
+    - Leave the form empty
+    - Submit the form by pressing the 'Submit' button
+    - Check that the displayed list is correct, namely all lecture rooms in all building and their occupancies in all intervals are shown
+
+3)
+Type: Validation
+Summary: No authentication
+Preconditions:
+    - Not logged into the system
+Step actions:
+    - Check that the 'Create Statistics' button does not appear
+
+4)
+Type: Validation
+Summary: No privilidge
+Preconditions:
+    - Logged into the system as a 'Student' user
+Step actions:
+    - Check that the 'Create Statistics' button does not appear
+
+5)
+Type: Defect
+Preconditions:
+    - Logged into the system as a member of commission for schedules, Department of Building Maintenance or a teacher
+    -There isn't a building named Z
+Step actions:
+    - Press the 'Create Statistics' button to obtain the form
+    - Fill in the form with an arbitrary interval and the building Z
+    - Submit the form
+    - Check whether the system fails to warn about the wrong building name
